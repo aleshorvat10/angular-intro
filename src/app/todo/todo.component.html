@@ -1,0 +1,22 @@
+<mat-card style="
+margin: 10px
+">
+<mat-form-field appearance="outline">
+    <mat-label>New task title</mat-label>
+    <input matInput [(ngModel)]="title">
+  </mat-form-field>
+  <button *ngIf="title.length>0" mat-icon-button
+    [disabled]="title.length<4"
+    (click)="add()">
+    <mat-icon>add</mat-icon>
+</button>
+  
+    <mat-list role="list">
+        <mat-list-item *ngFor="let task of tasks">
+            <mat-slide-toggle [(ngModel)]="task.completed" (change)="Save()">
+            {{task.title}} - {{task.completed?"Done":"not done :("}}</mat-slide-toggle>
+            <span class="spacer"></span>
+            <button mat-icon-button (click)="deteleTask(task)"><mat-icon>delete_forever</mat-icon></button>
+        </mat-list-item>
+      </mat-list>
+</mat-card>
