@@ -37,6 +37,10 @@ export class TodoComponent implements OnInit {
   {
     localStorage.setItem("tasks",JSON.stringify(this.tasks));
   }
+  GetCompleted()
+  {
+    return this.tasks.filter(task => task.completed).length;
+  }
 }
 interface Task{
   title: string;
