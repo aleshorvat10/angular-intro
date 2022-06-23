@@ -1,5 +1,6 @@
 <mat-toolbar color="primary">
     <span>Prijave</span>
+    <mat-card style=" margin: 15px; padding: 5px;"><mat-card-subtitle>{{response}}</mat-card-subtitle></mat-card>
     <span class="spacer"></span>
 
     <form class="kartice-form" *ngIf="kartice.length>0">
@@ -26,6 +27,6 @@
 
 </div>
 <div *ngIf="prijave.length == 0">
-  Ni prijav!
+  <mat-card><mat-card-title>Ni prijav!</mat-card-title></mat-card>
 </div>
 </mat-card>
