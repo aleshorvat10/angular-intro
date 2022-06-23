@@ -1,0 +1,32 @@
+<mat-toolbar color="primary">
+    <span>Prijave</span>
+    <span class="spacer"></span>
+
+    <form class="kartice-form" *ngIf="kartice.length>0">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Osebe</mat-label>
+          <input type="text" matInput [matAutocomplete]="auto">
+          <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+            <mat-option *ngFor="let kartice of filteredOptions | async" [value]="kartice" (onSelectionChange)='getPosts($event,kartice)'>
+              {{kartice.OCJ03_Ime}} 
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+        <button (click)="Registracija()" mat-icon-button><mat-icon>add</mat-icon></button>  
+      </form>
+</mat-toolbar>
+
+<mat-card style="margin: 10px">
+
+
+<div *ngIf="prijave.length> 0">
+<mat-list role="list">
+    <mat-list-item *ngFor="let book of prijave">
+        {{book.OCJ02_Ime}} {{book.OCJ02_Priimek}}  :  {{book.OCJ02_Prihod}}
+    </mat-list-item>
+</mat-list>
+</div>
+<div *ngIf="prijave.length == 0">
+  Ni prijav!
+</div>
+</mat-card>
