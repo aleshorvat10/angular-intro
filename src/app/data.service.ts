@@ -16,7 +16,10 @@ export class DataService {
     return this.http.get<Kartice[]>("/kartice")
   }
   savePrijava(prijava: Prijava): Observable<any> {
-    return this.http.post("/registracija", prijava)
+    var pr = JSON.stringify(prijava);
+    console.log(pr);
+    const headers = { 'content-type': 'application/json'};
+    return this.http.post("/registracija", pr,{'headers':headers});
   }
 }
 

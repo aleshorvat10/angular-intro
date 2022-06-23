@@ -50,7 +50,7 @@ export class PrijavaComponent implements OnInit {
       }
     }
 
-  Registracija(){ 
+  async Registracija(){ 
     this.p.OCJ01_Id=this.selectedUser.toString();
     this.p.OCJ01_Prihod='2022-06-22 08:01:50';
     console.log(this.selectedUser);
@@ -58,11 +58,22 @@ export class PrijavaComponent implements OnInit {
       //Go back to the home page
       this.router.navigate(['/'])
     });
+    await new Promise(f => setTimeout(f, 1000));
+    this.Reload();
+  }
+  Reload()
+  {
     this.prijave=[];
     this.dataService.getPrijava().subscribe(prijavaList => {this.prijave = prijavaList});
-    console.table(this.prijave);
   }
-
+  getDate(d: string):string
+  {
+    return d.split("T")[0];
+  }
+  getTime(d: string):string
+  {
+    return d.split("T")[1];
+  }
   private _filter(name: string): Kartice[] {
     const filterValue = name.toLowerCase();
     return this.kartice.filter(option => option.OCJ03_Ime.toLowerCase().includes(filterValue));
