@@ -13,6 +13,7 @@
           </mat-autocomplete>
         </mat-form-field>
         <button (click)="Registracija()" mat-icon-button><mat-icon>add</mat-icon></button>  
+        <button (click)="Reload()" mat-icon-button><mat-icon>refresh</mat-icon></button>  
       </form>
 </mat-toolbar>
 
@@ -20,11 +21,9 @@
 
 
 <div *ngIf="prijave.length> 0">
-<mat-list role="list">
-    <mat-list-item *ngFor="let book of prijave">
-        {{book.OCJ02_Ime}} {{book.OCJ02_Priimek}}  :  {{book.OCJ02_Prihod}}
-    </mat-list-item>
-</mat-list>
+
+        <mat-card *ngFor="let p of prijave"><mat-card-title>{{p.OCJ02_Ime}} {{p.OCJ02_Priimek}}</mat-card-title><mat-card-subtitle>{{getDate(p.OCJ02_Prihod)}}</mat-card-subtitle><mat-card-actions><button mat-icon-button><mat-icon>schedule</mat-icon></button>{{getTime(p.OCJ02_Prihod)}} <button mat-icon-button><mat-icon>timelapse</mat-icon></button>{{getTime(p.OCJ02_Odhod)}}</mat-card-actions></mat-card><br>
+
 </div>
 <div *ngIf="prijave.length == 0">
   Ni prijav!
