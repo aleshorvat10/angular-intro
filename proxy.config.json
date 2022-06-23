@@ -1,0 +1,17 @@
+{
+    "/prijave": {
+      "target": "https://localhost:44304/home/GetPrijave",
+      "secure": false
+    },
+    "/home": {
+      "target": "https://localhost:44304/home/",
+      "secure": false
+    },
+    "/registracija": {
+      "target": "https://localhost:44304/home/Prijava",
+      "secure": false
+    },
+    "/kartice": {
+      "target": "https://localhost:44304/home/GetKartice",
+      "secure": false
+    } }
