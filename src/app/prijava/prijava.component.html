@@ -5,7 +5,7 @@
 
     <form class="kartice-form" *ngIf="kartice.length>0">
         <mat-form-field class="example-full-width" appearance="fill">
-          <mat-label>Osebe</mat-label>
+          <mat-label>Izberi osebo</mat-label>
           <input type="text" matInput [matAutocomplete]="auto">
           <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
             <mat-option *ngFor="let kartice of filteredOptions | async" [value]="kartice" (onSelectionChange)='getPosts($event,kartice)'>

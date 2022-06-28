@@ -5,8 +5,8 @@ import { TodoComponent } from './todo/todo.component';
 import { PrijavaComponent } from './prijava/prijava.component';
 
 const routes: Routes = [
-  {path: '', component: PrijavaComponent},
- // {path:'',component:HomeComponent},
+  {path:'',component:HomeComponent},
+  {path:'prijava', component: PrijavaComponent},
   {path:'todo',component:TodoComponent}
 ];
 
